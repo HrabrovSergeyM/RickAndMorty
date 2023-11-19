@@ -13,6 +13,6 @@ final class RMSettingsViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemFill
-        title = "Characters"
+        title = "Settings"
     }
 }
