@@ -23,7 +23,7 @@ final class RMCharacterCollectionViewCellViewModel {
     }
     
     public var characterStatusText: String {
-        return characterStatus.rawValue
+        return "Status: \(characterStatus.text)"
     }
     
     public func fetchImage(comletion: @escaping (Result<Data, Error>) -> Void) {
@@ -35,6 +35,7 @@ final class RMCharacterCollectionViewCellViewModel {
         let task = URLSession.shared.dataTask(with: request) {data, _, error in
             guard let data = data, error == nil else {
                 comletion(.failure(error ?? URLError(.badServerResponse)))
+                print("RMCharacterCollectionViewCellViewModel, data")
                 return
             }
             
