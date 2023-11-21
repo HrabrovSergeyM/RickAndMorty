@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class RMCharacterCollectionViewCellViewModel {
+final class RMCharacterCollectionViewCellViewModel: Hashable, Equatable {
+   
     let characterName: String
     private let characterStatus: RMCharacterStatus
     private let characterImageUrl: URL?
@@ -31,16 +32,20 @@ final class RMCharacterCollectionViewCellViewModel {
             comletion(.failure(URLError(.badURL)))
             return
         }
-        let request = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: request) {data, _, error in
-            guard let data = data, error == nil else {
-                comletion(.failure(error ?? URLError(.badServerResponse)))
-                print("RMCharacterCollectionViewCellViewModel, data")
-                return
-            }
-            
-            comletion(.success(data))
-        }
-        task.resume()
+       let request = URLRequest(url: url)
+        RMImageLoader.shared.downloadImage(url, completion: comletion)
     }
+    
+    // MARK: - Hashable
+    
+    static func == (lhs: RMCharacterCollectionViewCellViewModel, rhs: RMCharacterCollectionViewCellViewModel) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(characterName)
+        hasher.combine(characterStatus)
+        hasher.combine(characterImageUrl)
+    }
+    
 }
