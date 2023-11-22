@@ -62,19 +62,49 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        let sectionType = vm.sections[section]
+        
+        switch sectionType {
+        case .photo:
+            return 1
+        case .information(let vm):
+            return vm.count
+        case .episodes(let vm):
+            return vm.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let sectionType = vm.sections[indexPath.section]
         
-        if indexPath.section == 0 {
-            cell.backgroundColor = .systemPink
-        } else if indexPath.section == 1 {
-            cell.backgroundColor = .systemCyan
-        } else {
-            cell.backgroundColor = .systemMint
+        switch sectionType {
+        case .photo(let vm):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: RMCharacterPhotoCollectionViewCell.cellIdenifier,
+                for: indexPath) as? RMCharacterPhotoCollectionViewCell else {
+                fatalError()
+            }
+            cell.configure(with: vm)
+
+            return cell
+        case .information(let vm):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: RMCharacterInfoCollectionViewCell.cellIdenifier,
+                for: indexPath) as? RMCharacterInfoCollectionViewCell else {
+                fatalError()
+            }
+            cell.configure(with: vm[indexPath.row])
+
+            return cell
+        case .episodes(let vm):
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: RMCharacterEpisodeCollectionViewCell.cellIdenifier,
+                for: indexPath) as? RMCharacterEpisodeCollectionViewCell else {
+                fatalError()
+            }
+            cell.configure(with: vm[indexPath.row])
+
+            return cell
         }
-        return cell
     }
 }
