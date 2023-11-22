@@ -85,7 +85,7 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
                 fatalError()
             }
             cell.configure(with: vm)
-
+            
             return cell
         case .information(let vm):
             guard let cell = collectionView.dequeueReusableCell(
@@ -94,7 +94,7 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
                 fatalError()
             }
             cell.configure(with: vm[indexPath.row])
-
+            
             return cell
         case .episodes(let vm):
             guard let cell = collectionView.dequeueReusableCell(
@@ -103,8 +103,22 @@ extension RMCharacterDetailViewController: UICollectionViewDelegate, UICollectio
                 fatalError()
             }
             cell.configure(with: vm[indexPath.row])
-
+            
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sectionType = vm.sections[indexPath.section]
+        
+        switch sectionType {
+        case .photo, .information:
+            break
+        case .episodes:
+            let episodes = self.vm.episodes
+            let selection = episodes[indexPath.row]
+            let vc = RMEpisodeDetailViewController(url: URL(string: selection))
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 }

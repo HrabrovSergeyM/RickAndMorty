@@ -16,7 +16,7 @@ final class RMCharacterInfoCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         //        label.text = "Earth"
-        label.font = .systemFont(ofSize: 22, weight: .light)
+        label.font = .systemFont(ofSize: 18, weight: .light)
         return label
     }()
     
