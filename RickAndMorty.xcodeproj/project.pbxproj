@@ -50,6 +50,7 @@
 		E9A3B8472B0E1B2C00EA26EA /* RMEpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3B8462B0E1B2C00EA26EA /* RMEpisodeListView.swift */; };
 		E9A3B8492B0E1D8B00EA26EA /* RMEpisodeListViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3B8482B0E1D8B00EA26EA /* RMEpisodeListViewViewModel.swift */; };
 		E9A3B84B2B0E216500EA26EA /* RMGetAllEpisodesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3B84A2B0E216500EA26EA /* RMGetAllEpisodesResponse.swift */; };
+		E9A3B84D2B17370100EA26EA /* RMSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A3B84C2B17370100EA26EA /* RMSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		E9A3B8462B0E1B2C00EA26EA /* RMEpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEpisodeListView.swift; sourceTree = "<group>"; };
 		E9A3B8482B0E1D8B00EA26EA /* RMEpisodeListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMEpisodeListViewViewModel.swift; sourceTree = "<group>"; };
 		E9A3B84A2B0E216500EA26EA /* RMGetAllEpisodesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMGetAllEpisodesResponse.swift; sourceTree = "<group>"; };
+		E9A3B84C2B17370100EA26EA /* RMSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,6 +257,7 @@
 			children = (
 				E9A3B8242B0B500C00EA26EA /* RMCharacterDetailViewController.swift */,
 				E9A3B83D2B0DCED100EA26EA /* RMEpisodeDetailViewController.swift */,
+				E9A3B84C2B17370100EA26EA /* RMSearchViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				E9A3B8162B0B25EB00EA26EA /* RMGetAllCharactersResponse.swift in Sources */,
 				E9A3B8292B0B50B600EA26EA /* RMCharacterDetailViewViewModel.swift in Sources */,
 				E9A3B80C2B09CA5D00EA26EA /* RMOrigin.swift in Sources */,
+				E9A3B84D2B17370100EA26EA /* RMSearchViewController.swift in Sources */,
 				E9A3B82D2B0CE0D200EA26EA /* RMImageLoader.swift in Sources */,
 				E9A3B81C2B0B2DBB00EA26EA /* RMCharacterListView.swift in Sources */,
 				E9A3B80E2B09CAB400EA26EA /* RMSingleLocation.swift in Sources */,
