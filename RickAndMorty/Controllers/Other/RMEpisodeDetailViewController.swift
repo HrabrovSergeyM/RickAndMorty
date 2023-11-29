@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class RMEpisodeDetailViewController: UIViewController {
+final class RMEpisodeDetailViewController: UIViewController, RMEpisodeDetailViewViewModelDelegate {
     
     private let detailView = RMEpisodeDetailView()
     
@@ -29,6 +29,9 @@ final class RMEpisodeDetailViewController: UIViewController {
         title = "Episode"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(didTapShare))
+        
+        vm.delegate = self
+        vm.fetchEpisodeData()
     }
     
     private func addConstraints() {
@@ -43,5 +46,11 @@ final class RMEpisodeDetailViewController: UIViewController {
     @objc
     private func didTapShare() {
         
+    }
+    
+    // MARK: - Delegate
+    
+    func didFetchEpisodeDetails() {
+        detailView.configure(with: vm)
     }
 }
