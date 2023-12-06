@@ -38,6 +38,13 @@ final class RMEpisodeDetailViewViewModel {
     
     // MARK: - Public func
     
+    public func character(at index: Int) -> RMCharacter? {
+        guard let dataTuple = dataTuple else {
+            return nil
+        }
+        return dataTuple.characters[index]
+    }
+    
     public func fetchEpisodeData() {
         guard let url = endpointUrl, let request = RMRequest(url: url) else {
             return
